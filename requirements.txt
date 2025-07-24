@@ -1,0 +1,9 @@
+Flask
+Flask-SQLAlchemy
+psycopg2-binary
+requests
+beautifulsoup4
+python-dotenv
+fuzzywuzzy
+werkzeug
+pytest

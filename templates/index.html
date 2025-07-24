@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Lookup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Search a Word</h2>
+    <form method="POST">
+        <input type="text" name="word" id="word" placeholder="Enter word">
+        <button type="submit">Search</button>
+    </form>
+    {% if definition %}
+        <h3>Definition:</h3>
+        <p>{{ definition }}</p>
+    {% endif %}
+    <a href="/dashboard">My History</a> |
+    <a href="/logout">Logout</a>
+
+    <script>
+    const input = document.getElementById("word");
+    const suggestionsBox = document.createElement("div");
+    suggestionsBox.id = "suggestions";
+    input.parentNode.appendChild(suggestionsBox);
+
+    input.addEventListener("input", async () => {
+        const res = await fetch(`/fuzzy?q=${input.value}`);
+        const suggestions = await res.json();
+        suggestionsBox.innerHTML = "";
+        if (input.value.trim()) {
+            suggestions.forEach(suggestion => {
+                const item = document.createElement("div");
+                item.textContent = suggestion;
+                item.onclick = () => {
+                    input.value = suggestion;
+                    suggestionsBox.innerHTML = "";
+                };
+                suggestionsBox.appendChild(item);
+            });
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!suggestionsBox.contains(e.target) && e.target !== input) {
+            suggestionsBox.innerHTML = "";
+        }
+    });
+</script>
+</body>
+</html>

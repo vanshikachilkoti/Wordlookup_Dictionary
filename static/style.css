@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 40px;
+    text-align: center;
+}
+
+form {
+    margin: 20px auto;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    margin: 10px;
+    display: inline-block;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    margin: 5px auto;
+    padding: 10px;
+    border-radius: 5px;
+    width: 60%;
+    text-align: left;
+}
+
+/* Suggestions dropdown */
+#suggestions {
+    border: 1px solid #ccc;
+    background: white;
+    max-width: 200px;
+    margin: 0 auto;
+    border-radius: 4px;
+    position: relative;
+    top: -10px;
+    z-index: 10;
+}
+
+#suggestions div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#suggestions div:hover {
+    background-color: #f0f0f0;
+}

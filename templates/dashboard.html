@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Your Past Searches</h2>
+    <ul>
+        {% for item in history %}
+            <li><b>{{ item.word }}</b>: {{ item.definition }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back</a> | <a href="/logout">Logout</a>
+</body>
+</html>
